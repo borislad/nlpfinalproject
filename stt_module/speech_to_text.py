@@ -8,7 +8,7 @@ def speech_to_text():
         audio = recognizer.listen(source)
 
     try:
-        text = recognizer.recognize_google(audio)
+        text = recognizer.recognize_sphinx(audio)
         print("You said: " + text)
     except sr.UnknownValueError:
         print("Sorry, I could not understand your speech.")

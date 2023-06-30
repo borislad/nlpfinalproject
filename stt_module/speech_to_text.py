@@ -5,10 +5,10 @@ def speech_to_text():
 
     with sr.Microphone() as source:
         print("Speak something...")
-        audio = recognizer.listen(source)
+        audio = recognizer.listen(source, phrase_time_limit=5)  # Stop listening after 5 seconds
 
     try:
-        text = recognizer.recognize_sphinx(audio)
+        text = recognizer.recognize_google(audio)
         print("You said: " + text)
     except sr.UnknownValueError:
         print("Sorry, I could not understand your speech.")

@@ -5,7 +5,7 @@ def speech_to_text():
 
     with sr.Microphone() as source:
         print("Speak something...")
-        audio = recognizer.listen(source)
+        audio = recognizer.listen(source, phrase_time_limit=5)  # Stop listening after 5 seconds
 
     try:
         text = recognizer.recognize_google(audio)
@@ -15,5 +15,3 @@ def speech_to_text():
         print("Sorry, I could not understand your speech.")
     except sr.RequestError as e:
         print("Speech recognition service is unavailable. Error: " + str(e))
-
-# speech_to_text()

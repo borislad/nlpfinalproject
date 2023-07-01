@@ -1,13 +1,15 @@
 import csv
 import random
+import os
 
-import csv
-import random
-
-
+# Update the working directory to the correct path
+# os.chdir('C:/Users/shabi/PycharmProjects/nlpfinalproject/word_generator')
 def select_random_word():
     # Open the CSV file
-    with open('Test_Dataset.csv', 'r') as file:
+    file_path = os.path.join(os.path.dirname(__file__), 'Test_Dataset.csv')
+    with open(file_path, 'r') as file:
+    
+    # with open('Test_Dataset.csv', 'r') as file:
         reader = csv.reader(file)
         data = list(reader)
 
@@ -24,4 +26,4 @@ def select_random_word():
     print(selected_word_string)
     return selected_word
 
-select_random_word()
+# select_random_word()

@@ -10,9 +10,10 @@ def speech_to_text():
     try:
         text = recognizer.recognize_google(audio)
         print("You said: " + text)
+        return text
     except sr.UnknownValueError:
         print("Sorry, I could not understand your speech.")
     except sr.RequestError as e:
         print("Speech recognition service is unavailable. Error: " + str(e))
 
-speech_to_text()
+# speech_to_text()

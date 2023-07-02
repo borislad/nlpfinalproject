@@ -7,7 +7,8 @@ from syllabify.syllable_utils import extract_syllables
 
 def word_verification_test():
     stt = speech_to_text()
-    selected_word = select_random_word()
+    # selected_word = select_random_word()
+    selected_word = "hello"
     while True:
         spoken_word = stt.speech_to_text(selected_word[0])
 

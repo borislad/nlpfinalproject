@@ -23,7 +23,7 @@ def select_random_word():
     # Select the row based on the random number
     selected_word = data[random_number]
     selected_word_string = ', '.join(selected_word)
-    print(selected_word_string)
+    # print(selected_word_string)
     return selected_word
 
 # select_random_word()

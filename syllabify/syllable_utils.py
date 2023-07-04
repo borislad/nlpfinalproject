@@ -1,4 +1,5 @@
 import nltk
+# nltk.download('punkt')
 import speech_recognition as sr
 import pyphen
 
@@ -6,7 +7,6 @@ import pyphen
 # nltk.download('punkt')
 syllable_tokenizer = nltk.tokenize.SyllableTokenizer()
 recognizer = sr.Recognizer()
-
 
 def syllable_breakdown(text):
     # Tokenize the text into words

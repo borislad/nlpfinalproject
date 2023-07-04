@@ -1,16 +1,4 @@
-
-from word_verification.word_verification import word_verification_test
+from UI_module.UI import Lunch_UI
 
 if __name__ == '__main__':
-    word_verification_test()
-
-
-
-
-
-
-
-
-
-
-
+    Lunch_UI()

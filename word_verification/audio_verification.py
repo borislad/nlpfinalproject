@@ -1,11 +1,11 @@
+import librosa
 import numpy as np
 import sounddevice as sd
 from scipy.io import wavfile
 import scipy.signal as sps
 import soundfile as sf
 
-
-def record_audio(duration, word_to_say, output_file):
+def record_audio(duration, output_file):
     # Set the sampling rate and number of channels
     sample_rate = 44100  # CD quality audio
     channels = 1  # Mono audio
@@ -15,13 +15,11 @@ def record_audio(duration, word_to_say, output_file):
 
     # Record audio from the microphone
     print("Recording audio...")
-    print("Say " + word_to_say + "...")
     audio = sd.rec(num_samples, samplerate=sample_rate, channels=channels)
     sd.wait()  # Wait for the recording to complete
 
     # Save the recorded audio to a WAV file
     wavfile.write(output_file, sample_rate, audio)
-
 
 def compare_audio_files(file1, file2):
     # Load the audio files
@@ -57,15 +55,18 @@ def compare_audio_files(file1, file2):
         print("Sound validation failed. The audio signals do not match.")
         return False
 
+# Example usage
+# C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification
+# audio_file1 = "C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification\Syllable_Record_chron_Fast.wav"
+# audio_file1 = "C:\\Users\\shabi\\PycharmProjects\\nlpfinalproject\\word_verification\\Syllable_Record_chron_Fast.wav"
+
+# audio_file1 = "Syllable_Record.wav"
+# audio_file2 = "C:\\Users\\shabi\\PycharmProjects\\nlpfinalproject\\word_verification\\Syllable_Record_chron_Slow.wav"
+# audio_file2 = "C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification\Syllable_Record_chron_Slow.wav"
 
 # Example usage
-# audio_file1 = "/Users/borisl/HIT/nlpfinalproject/word_verification/syllables_audio/ate.wav"
-# audio_file2 = "recorded_audio1.wav"
-
-# Example usage
-# recording_duration = 2  # Duration in seconds
-# output_file = "recorded_audio2.wav"
-# record_audio(recording_duration, "ate",audio_file1)
+recording_duration = 2  # Duration in seconds
+# output_file = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification\syllables_audio/" + "ate" + ".wav"
+# record_audio(recording_duration, output_file)
+# print("Finished Recording")
 # compare_audio_files(audio_file1, audio_file2)
-
-# Ex-ag-ger-ate

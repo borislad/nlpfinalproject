@@ -4,7 +4,7 @@ import pygame
 
 def say_text(text):
     # Create a temporary file to save the generated audio
-    temp_file = tempfile.NamedTemporaryFile(delete=True)
+    temp_file = tempfile.NamedTemporaryFile(delete=True, dir=r"C:\Users\shabi\PycharmProjects\nlpfinalproject")
 
     # Initialize gTTS with the desired text
     tts = gTTS(text=text, lang="en")

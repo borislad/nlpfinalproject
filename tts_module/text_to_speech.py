@@ -1,10 +1,13 @@
+import os
+
 from gtts import gTTS
 import tempfile
 import pygame
 
+
 def say_text(text):
     # Create a temporary file to save the generated audio
-    temp_file = tempfile.NamedTemporaryFile(delete=True, dir=r"C:\Users\shabi\PycharmProjects\nlpfinalproject")
+    temp_file = tempfile.NamedTemporaryFile(delete=True, dir=os.path.abspath(os.getcwd()))
 
     # Initialize gTTS with the desired text
     tts = gTTS(text=text, lang="en")
@@ -29,5 +32,7 @@ def say_text(text):
     pygame.mixer.quit()
 
 
-text = "ate"
-say_text(text)
+def build_file_path(directory, filename):
+    # Create the full file path using os.path.join()
+    file_path = os.path.abspath(os.getcwd()) + os.path.join(directory, filename)
+    return file_path

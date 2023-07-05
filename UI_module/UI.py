@@ -1,11 +1,6 @@
-
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton
-
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QWidget
 from word_verification.word_verification import word_verification_test
-
-def start_improving_your_english():
-    word_verification_test()
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -27,8 +22,11 @@ class MainWindow(QMainWindow):
         start_button = QPushButton("Start Improving Your English", self)
         start_button.setGeometry((window_width - button_width) // 2, (window_height - button_height) // 2,
                                  button_width, button_height)
-        start_button.clicked.connect(start_improving_your_english)
+        start_button.clicked.connect(self.start_verification)
 
+    def start_verification(self):
+        # Call the word_verification_test function
+        word_verification_test()
 
 def Lunch_UI():
     app = QApplication(sys.argv)

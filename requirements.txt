@@ -9,3 +9,5 @@ soundfile~=0.12.1
 pyttsx3~=2.90
 pygame~=2.5.0
 gTTS~=2.3.2
+PyQt5~=5.15.9
+librosa~=0.10.0.post2

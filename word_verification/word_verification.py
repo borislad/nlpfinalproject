@@ -1,4 +1,5 @@
 import csv
+import os
 import random
 from word_generator.random_word import select_random_word
 from stt_module.stt import STT
@@ -29,9 +30,14 @@ def word_verification_test():
                 print("Pronounce the syllable:", syllable)
                 input("Press Enter to record the syllable: ")
                 # TODO: add a recording for the syllable and validation against it
-                recorded_syllable_file_path = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification\syllable_recordings/" + syllable + ".wav"
+                directory_path = "/word_verification/syllable_recordings/"
+                file_name = syllable + ".wav"
+                recorded_syllable_file_path = build_file_path(directory_path, file_name)
+                # recorded_syllable_file_path = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification\syllable_recordings/" + syllable + ".wav"
                 record_audio(2, recorded_syllable_file_path)
-                syllables_audio_file_path = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification\syllables_audio/" + syllable + ".wav"
+                directory_path = "/word_verification/syllables_audio/"
+                syllables_audio_file_path = build_file_path(directory_path, file_name)
+                # syllables_audio_file_path = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification\syllables_audio/" + syllable + ".wav"
                 if compare_audio_files(syllables_audio_file_path, recorded_syllable_file_path):
                     print("Correct syllable!")
                 else:
@@ -53,3 +59,9 @@ def word_verification(word_to_say):
     else:
         print("Incorrect word!")
         return False
+
+
+def build_file_path(directory, filename):
+    # Create the full file path using os.path.join()
+    file_path = os.path.abspath(os.getcwd()) + os.path.join(directory, filename)
+    return file_path

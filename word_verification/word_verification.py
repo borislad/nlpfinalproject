@@ -26,17 +26,19 @@ def word_verification_test():
             syllables = extract_syllables(selected_word)
             print("-".join(syllables))
             for syllable in syllables:
-                print("Pronounce the syllable:", syllable)
-                input("Press Enter to record the syllable: ")
-                # TODO: add a recording for the syllable and validation against it
-                recorded_syllable_file_path = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification\syllable_recordings/" + syllable + ".wav"
-                record_audio(2, recorded_syllable_file_path)
-                syllables_audio_file_path = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification\syllables_audio/" + syllable + ".wav"
-                if compare_audio_files(syllables_audio_file_path, recorded_syllable_file_path):
-                    print("Correct syllable!")
-                else:
-                    print("Incorrect syllable!")
-                    print("The correct syllable is: ", syllable)
+                while True:
+                    print("Pronounce the syllable:", syllable)
+                    input("Press Enter to record the syllable: ")
+                    # TODO: add a recording for the syllable and validation against it
+                    recorded_syllable_file_path = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification\syllable_recordings/" + syllable + ".wav"
+                    record_audio(2, recorded_syllable_file_path)
+                    syllables_audio_file_path = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification\syllables_audio/" + syllable + ".wav"
+                    if compare_audio_files(syllables_audio_file_path, recorded_syllable_file_path):
+                        print("Correct syllable! lets continue to the n")
+                        break
+                    else:
+                        print("Incorrect syllable!")
+                        print("The correct syllable is: ", syllable)
 
 
 def word_verification(word_to_say):

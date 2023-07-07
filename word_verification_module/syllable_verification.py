@@ -8,7 +8,11 @@ from word_verification_module.audio_verification import record_audio, compare_au
 from word_verification_module.file_utils import build_file_path
 from Learning_Recommendation.Learning_Recommendation import read_syllable_dataset_to_dictionary
 
+
 def Syllable_verifaction():
+    if not syllables_dataset_audio_exist():
+        print("Some syllables dataset audio files missing. Please run the syllables dataset audio generator.")
+        syllables_dataset_audio_generator()
     syllable_dict = read_syllable_dataset_to_dictionary()
     for syllable in syllable_dict.keys():
         while True:
@@ -32,10 +36,43 @@ def Syllable_verifaction():
                 print("Incorrect syllable!")
                 say_text("The correct syllable is: " + syllable)
                 print("The correct syllable is: ", syllable)
-                syllable_dict[syllable]+=1
-                if syllable_dict[syllable] == 2: # 5 tries per syllable!!
+                syllable_dict[syllable] += 1
+                if syllable_dict[syllable] == 2:  # 5 tries per syllable!!
                     break
         print(syllable_dict)
     return syllable_dict
 
-# Syllable_verifaction()
+
+# TODO: Build function that loops through the syllables and asks the user to pronounce them and record them
+
+# then compare the recorded syllable to the syllable audio file
+# if the user pronounces the syllable correctly, move to the next syllable
+# if the user pronounces the syllable incorrectly, repeat the syllable 5 times
+# if the user pronounces the syllable incorrectly 5 times, move to the next syllable
+
+def syllables_dataset_audio_generator():
+    syllable_dict = read_syllable_dataset_to_dictionary()
+    for syllable in syllable_dict.keys():
+        directory_path = "/word_verification_module/syllables_audio/"
+        file_name = syllable + ".wav"
+        syllables_audio_file_path = build_file_path(directory_path, file_name)
+        if os.path.isfile(syllables_audio_file_path):
+            continue
+        else:
+            print("Pronounce the syllable:", syllable)
+            say_text("Please pronounce the syllable: " + syllable)
+            input("Press Enter to record the syllable: ")
+            record_audio(2, syllables_audio_file_path)
+    return syllable_dict
+
+
+# Check if all sylables from syllable dataset are recorded
+def syllables_dataset_audio_exist():
+    syllable_dict = read_syllable_dataset_to_dictionary()
+    for syllable in syllable_dict.keys():
+        directory_path = "/word_verification_module/syllables_audio/"
+        file_name = syllable + ".wav"
+        syllables_audio_file_path = build_file_path(directory_path, file_name)
+        if not os.path.isfile(syllables_audio_file_path):
+            return False
+    return True

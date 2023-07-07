@@ -32,13 +32,13 @@ class STT:
 
         try:
             text = self.recognizer.recognize_google(audio)
-            say_text("You said: " + text)
-            # print("You said: " + text)
+            print("You said: " + text)
+            # say_text("You said: " + text)
             # Extract the first word
             first_word = text.split()[0]
             return first_word
         except sr.UnknownValueError:
+            print("Sorry, I could not understand your speech.")
             say_text("Sorry, I could not understand your speech.")
-            # print("Sorry, I could not understand your speech.")
         except sr.RequestError as e:
             print("Speech recognition service is unavailable. Error: " + str(e))

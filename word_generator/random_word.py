@@ -24,7 +24,7 @@ def select_random_word():
     selected_word = data[random_number]
     selected_word_string = ', '.join(selected_word)
     # print(selected_word_string)
-    return selected_word
+    return selected_word_string
 
 # select_random_word()
 

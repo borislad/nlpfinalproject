@@ -35,11 +35,9 @@
 #     # Create the full file path using os.path.join()
 #     file_path = os.path.abspath(os.getcwd()) + os.path.join(directory, filename)
 #     return file_path
-#
-# text= "Exaggerate"
-# say_text(text)
 
 import pyttsx3
+
 
 def say_text(text):
     # Initialize pyttsx3 TTS engine
@@ -47,9 +45,9 @@ def say_text(text):
 
     # Set the desired speech rate
     engine.setProperty("rate", 150)  # Adjust the value as needed
-
     # Say the text
     engine.say(text)
+
     engine.runAndWait()
 
 # text = "Shabat Shalom!"

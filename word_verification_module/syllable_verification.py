@@ -15,12 +15,12 @@ def Syllable_verifaction():
             print("Pronounce the syllable:", syllable)
             say_text("Please pronounce the syllable: " + syllable)
             input("Press Enter to record the syllable: ")
-            directory_path = "/word_verification_module\syllable_recordings/"
+            directory_path = "/word_verification_module/syllable_recordings/"
             file_name = syllable + ".wav"
             recorded_syllable_file_path = build_file_path(directory_path, file_name)
             # recorded_syllable_file_path = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification_module\syllable_recordings/" + syllable + ".wav"
             record_audio(2, recorded_syllable_file_path)
-            directory_path = "/word_verification_module\syllables_audio/"
+            directory_path = "/word_verification_module/syllables_audio/"
             syllables_audio_file_path = build_file_path(directory_path, file_name)
             # syllables_audio_file_path = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification_module\syllables_audio/" + syllable + ".wav"
             if compare_audio_files(syllables_audio_file_path, recorded_syllable_file_path):
@@ -33,7 +33,7 @@ def Syllable_verifaction():
                 say_text("The correct syllable is: " + syllable)
                 print("The correct syllable is: ", syllable)
                 syllable_dict[syllable]+=1
-                if syllable_dict[syllable] == 5: # 5 tries per syllable!!
+                if syllable_dict[syllable] == 2: # 5 tries per syllable!!
                     break
         print(syllable_dict)
     return syllable_dict

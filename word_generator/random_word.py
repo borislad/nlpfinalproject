@@ -27,3 +27,21 @@ def select_random_word():
     return selected_word
 
 # select_random_word()
+
+def find_words_by_syllable(syllable):
+    words = []
+    file_path = os.path.join(os.path.dirname(__file__), 'Test_Dataset.csv')
+    with open(file_path, 'r') as file:
+        reader = csv.reader(file)
+        next(reader)  # Skip header row
+
+        for row in reader:
+            word, word_syllable = row[0].split(' ')
+            if word_syllable == syllable:
+                words.append(word)
+
+    return words
+
+# syllable = "ence"
+# words_list = find_words_by_syllable(syllable)
+# print(words_list)

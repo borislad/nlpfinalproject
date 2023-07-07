@@ -13,6 +13,7 @@ from word_verification_module.file_utils import build_file_path
 def word_verification_test(Words_to_practice):
     stt = STT()
     # selected_word = select_random_word()
+    Words_tries_dict = {key: 1 for key in Words_to_practice}
     for selected_word in Words_to_practice:
         while True:
             print("Please pronounce the word: " + selected_word)
@@ -30,6 +31,7 @@ def word_verification_test(Words_to_practice):
                 # selected_word = select_random_word()
                 break
             else:
+                Words_tries_dict[selected_word] +=1
                 print("Incorrect word! \nlets split the word to syllables...")
                 say_text(text="Incorrect word! Please try again. lets split the word to syllables...")
                 syllables = extract_syllables(selected_word)
@@ -54,7 +56,8 @@ def word_verification_test(Words_to_practice):
                         print("Incorrect syllable!")
                         say_text("The correct syllable is: " + syllable)
                         print("The correct syllable is: ", syllable)
-
+    print(Words_tries_dict)
+    return Words_tries_dict
 def word_verification(word_to_say):
     stt = STT()
     spoken_word = stt.speech_to_text(word_to_say)

@@ -7,6 +7,7 @@ from word_generator.random_word import find_words_by_syllable
 from word_verification_module.word_verification import word_verification_test
 
 def learning_steps():
+
     syllable_dict = Syllable_verifaction()
     Syllable_To_Practice = find_highest_value(syllable_dict)
     # NOW NEED TO ADD WITCH FAMILY OF WORDS TO TAKE BASED ON THE Syllable_To_Practice key!!

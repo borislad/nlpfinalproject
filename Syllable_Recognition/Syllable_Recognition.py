@@ -1,6 +1,6 @@
 # `pip3 install assemblyai` (macOS)
 # `pip install assemblyai` (Windows)
-from word_verification.audio_verification import record_audio
+from word_verification_module.audio_verification import record_audio
 import assemblyai as aai
 
 aai.settings.api_key = "87ad71043abe48c19e892598609fd8d2"

@@ -38,7 +38,8 @@ import sys
 import threading
 from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel, QStackedLayout
 from PyQt5.QtCore import Qt, QMetaObject, pyqtSlot
-from word_verification_module.word_verification import word_verification_test
+from learning_process_moudle.learning_process import learning_steps
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -104,16 +105,16 @@ class MainWindow(QMainWindow):
         if not self.button_clicked:
             self.button_clicked = True
             # Start a new thread to run word_verification_test
-            verification_thread = threading.Thread(target=self.word_verification_thread)
-            verification_thread.start()
+            Learning_proccess_thread = threading.Thread(target=self.Learning_proccess_thread)
+            Learning_proccess_thread.start()
             self.button_clicked = False
 
             # Create the second page after the word verification is complete
             QMetaObject.invokeMethod(self, "create_second_page_wrapper", Qt.QueuedConnection)
 
-    def word_verification_thread(self):
+    def Learning_proccess_thread(self):
         # Call the word_verification_test function
-        word_verification_test()
+        learning_steps()
 
 def Lunch_UI():
     app = QApplication(sys.argv)

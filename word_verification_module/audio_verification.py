@@ -64,9 +64,9 @@ def compare_audio_files(file1, file2):
 # audio_file2 = "C:\\Users\\shabi\\PycharmProjects\\nlpfinalproject\\word_verification_module\\Syllable_Record_chron_Slow.wav"
 # audio_file2 = "C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification_module\Syllable_Record_chron_Slow.wav"
 
-# Example usage
-recording_duration = 2  # Duration in seconds
-# output_file = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification_module\syllables_audio/" + "ate" + ".wav"
+# Recoding syllables for syllables_audio dir
+# recording_duration = 2  # Duration in seconds
+# output_file = r"C:\Users\shabi\PycharmProjects\nlpfinalproject\word_verification_module\syllables_audio/" + "ment" + ".wav"
 # record_audio(recording_duration, output_file)
 # print("Finished Recording")
 # compare_audio_files(audio_file1, audio_file2)

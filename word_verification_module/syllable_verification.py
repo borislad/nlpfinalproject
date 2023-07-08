@@ -36,7 +36,7 @@ def Syllable_verifaction():
                 say_text("The correct syllable is: " + syllable)
                 print("The correct syllable is: ", syllable)
                 syllable_dict[syllable] += 1
-                if syllable_dict[syllable] == 2:  # 5 tries per syllable!!
+                if syllable_dict[syllable] == 5:  # 5 tries per syllable!!
                     break
         print(syllable_dict)
     return syllable_dict

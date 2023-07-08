@@ -45,7 +45,7 @@ def compare_audio_files(file1, file2):
     print("Similarity score:", similarity)
 
     # Set a similarity threshold
-    similarity_threshold = 0.6
+    similarity_threshold = 0.45
 
     # Compare the similarity with the threshold
     if similarity >= similarity_threshold:

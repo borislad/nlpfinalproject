@@ -28,7 +28,7 @@ class STT:
 
         with sr.Microphone() as source:
             # print("Say " + word_to_say + "...")
-            audio = self.recognizer.listen(source, phrase_time_limit=5)  # Stop listening after 5 seconds
+            audio = self.recognizer.listen(source, phrase_time_limit=3)  # Stop listening after 5 seconds
 
         try:
             text = self.recognizer.recognize_google(audio)

@@ -16,7 +16,7 @@ def read_syllable_dataset_to_dictionary(filename):
                 # Remove BOM character from the first row, if present
                 row[0] = row[0][1:]
             key = row[0]
-            value = 0
+            value = 1
             syllable_dict[key] = value
 
     # print(syllable_dict)

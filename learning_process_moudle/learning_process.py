@@ -15,9 +15,10 @@ def learning_steps():
     # NOW NEED TO ADD WITCH FAMILY OF WORDS TO TAKE BASED ON THE Syllable_To_Practice key!!
     Words_to_practice = find_words_by_syllable(Syllable_To_Practice)
     print('The words to practice are:', ', '.join(Words_to_practice))
-    word_verification_test(Words_to_practice)
-    # ADD plots to show the learning rate...
-    plot_sorted_dict(Syllable_To_Practice, "syllable")
-    plot_sorted_dict(Words_to_practice, "word")
-    print('ADD plots to show the learning rate...')
+    Words_tries_dict = word_verification_test(Words_to_practice)
+    # syllable_dict = {'Conscience': 1, 'Resilience': 2, 'Competence': 1, 'Providence': 1, 'Elegance': 1}
+    # Words_tries_dict = {'Conscience': 3, 'Resilience': 3, 'Competence': 4, 'Providence': 5, 'Elegance': 6}
+    plot_sorted_dict(syllable_dict, "syllable")
+    plot_sorted_dict(Words_tries_dict, "word")
+
 # learning_steps()

@@ -72,6 +72,3 @@ def word_verification(word_to_say):
     else:
         print("Incorrect word!")
         return False
-
-
-

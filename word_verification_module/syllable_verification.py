@@ -12,7 +12,7 @@ def Syllable_verifaction():
     if not syllables_dataset_audio_exist():
         print("Some syllables dataset audio files missing. Please run the syllables dataset audio generator.")
         syllables_dataset_audio_generator()
-    syllable_dict = read_syllable_dataset_to_dictionary()
+    syllable_dict = read_syllable_dataset_to_dictionary("test_syllable_Dataset.csv")
     for syllable in syllable_dict.keys():
         while True:
             print("Pronounce the syllable:", syllable)
@@ -50,7 +50,7 @@ def Syllable_verifaction():
 # if the user pronounces the syllable incorrectly 5 times, move to the next syllable
 
 def syllables_dataset_audio_generator():
-    syllable_dict = read_syllable_dataset_to_dictionary()
+    syllable_dict = read_syllable_dataset_to_dictionary("syllable_Dataset.csv")
     for syllable in syllable_dict.keys():
         directory_path = "/word_verification_module/syllables_audio/"
         file_name = syllable + ".wav"
@@ -67,7 +67,7 @@ def syllables_dataset_audio_generator():
 
 # Check if all sylables from syllable dataset are recorded
 def syllables_dataset_audio_exist():
-    syllable_dict = read_syllable_dataset_to_dictionary()
+    syllable_dict = read_syllable_dataset_to_dictionary("syllable_Dataset.csv")
     for syllable in syllable_dict.keys():
         directory_path = "/word_verification_module/syllables_audio/"
         file_name = syllable + ".wav"

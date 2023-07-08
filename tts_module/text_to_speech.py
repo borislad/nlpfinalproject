@@ -38,6 +38,7 @@
 
 import pyttsx3
 
+
 def say_text(text):
     # Initialize pyttsx3 TTS engine
     engine = pyttsx3.init()

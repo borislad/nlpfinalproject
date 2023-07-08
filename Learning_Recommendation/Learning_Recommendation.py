@@ -4,10 +4,10 @@ import os
 import syllabify.syllable_utils
 
 
-def read_syllable_dataset_to_dictionary():
+def read_syllable_dataset_to_dictionary(filename):
     syllable_dict = {}
 
-    file_path = os.path.join(os.path.dirname(__file__), 'syllable_Dataset.csv')
+    file_path = os.path.join(os.path.dirname(__file__), filename)
 
     with open(file_path, 'r', encoding='utf-8-sig') as csv_file:
         csv_reader = csv.reader(csv_file)

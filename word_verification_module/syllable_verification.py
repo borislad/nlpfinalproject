@@ -8,7 +8,6 @@ from word_verification_module.audio_verification import record_audio, compare_au
 from word_verification_module.file_utils import build_file_path
 from Learning_Recommendation.Learning_Recommendation import read_syllable_dataset_to_dictionary
 
-
 def Syllable_verifaction():
     if not syllables_dataset_audio_exist():
         print("Some syllables dataset audio files missing. Please run the syllables dataset audio generator.")

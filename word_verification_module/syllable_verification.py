@@ -42,8 +42,6 @@ def Syllable_verifaction():
     return syllable_dict
 
 
-# TODO: Build function that loops through the syllables and asks the user to pronounce them and record them
-
 # then compare the recorded syllable to the syllable audio file
 # if the user pronounces the syllable correctly, move to the next syllable
 # if the user pronounces the syllable incorrectly, repeat the syllable 5 times

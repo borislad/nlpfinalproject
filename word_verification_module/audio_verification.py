@@ -22,39 +22,39 @@ def record_audio(duration, output_file):
     wavfile.write(output_file, sample_rate, audio)
 
 
-# def compare_audio_files(file1, file2):
-#     # Load the audio files
-#     audio1, sample_rate1 = sf.read(file1)
-#     audio2, sample_rate2 = sf.read(file2)
-#
-#     # Resample the audio signals if necessary
-#     if sample_rate1 != sample_rate2:
-#         audio2 = sps.resample(audio2, len(audio1))
-#
-#     # Perform Fourier Transform on the audio signals
-#     spectrum1 = np.abs(np.fft.fft(audio1))
-#     spectrum2 = np.abs(np.fft.fft(audio2))
-#
-#     # Normalize the spectra
-#     spectrum1 /= np.max(spectrum1)
-#     spectrum2 /= np.max(spectrum2)
-#
-#     # Calculate the similarity measure (e.g., correlation coefficient)
-#     similarity = np.corrcoef(spectrum1, spectrum2)[0, 1]
-#
-#     # Print the similarity score
-#     print("Similarity score:", similarity)
-#
-#     # Set a similarity threshold
-#     similarity_threshold = 0.45
-#
-#     # Compare the similarity with the threshold
-#     if similarity >= similarity_threshold:
-#         print("Sound validation successful. The audio signals match.")
-#         return True
-#     else:
-#         print("Sound validation failed. The audio signals do not match.")
-#         return False
+def compare_audio_files(file1, file2):
+    # Load the audio files
+    audio1, sample_rate1 = sf.read(file1)
+    audio2, sample_rate2 = sf.read(file2)
+
+    # Resample the audio signals if necessary
+    if sample_rate1 != sample_rate2:
+        audio2 = sps.resample(audio2, len(audio1))
+
+    # Perform Fourier Transform on the audio signals
+    spectrum1 = np.abs(np.fft.fft(audio1))
+    spectrum2 = np.abs(np.fft.fft(audio2))
+
+    # Normalize the spectra
+    spectrum1 /= np.max(spectrum1)
+    spectrum2 /= np.max(spectrum2)
+
+    # Calculate the similarity measure (e.g., correlation coefficient)
+    similarity = np.corrcoef(spectrum1, spectrum2)[0, 1]
+
+    # Print the similarity score
+    print("Similarity score:", similarity)
+
+    # Set a similarity threshold
+    similarity_threshold = 0.45
+
+    # Compare the similarity with the threshold
+    if similarity >= similarity_threshold:
+        print("Sound validation successful. The audio signals match.")
+        return True
+    else:
+        print("Sound validation failed. The audio signals do not match.")
+        return False
 
 
 # Example usage
@@ -75,43 +75,42 @@ def record_audio(duration, output_file):
 # print("Finished Recording")
 
 
-def compare_audio_files(file1, file2):
-    # Load the audio files
-    audio1, sample_rate1 = sf.read(file1)
-    audio2, sample_rate2 = sf.read(file2)
-
-    # Resample the audio signals if necessary
-    if sample_rate1 != sample_rate2:
-        audio2 = np.interp(
-            np.linspace(0, len(audio1), len(audio2)),
-            np.arange(len(audio2)),
-            audio2
-        )
-
-    # Calculate the root mean square (RMS) of the audio signals
-    rms1 = np.sqrt(np.mean(np.square(audio1)))
-    rms2 = np.sqrt(np.mean(np.square(audio2)))
-
-    # Set a similarity threshold
-    similarity_threshold = 0.6
-
-    # Compare the RMS values
-    similarity = min(rms1, rms2) / max(rms1, rms2)
-
-    # Compare the similarity with the threshold
-    if similarity >= similarity_threshold:
-        print("Audio files match. Similarity score:", similarity)
-        return True
-    else:
-        print("Audio files do not match. Similarity score:", similarity)
-        return False
-
-
-# audio_file1 = "/Users/borisl/HIT/nlpfinalproject/word_verification_module/syllables_audio/si.wav"
-# audio_file2 = "/Users/borisl/HIT/nlpfinalproject/word_verification_module/syllable_recordings/si.wav"
-# # record_audio(2, audio_file2)
-# compare_audio_files2(audio_file1, audio_file2)
+# def compare_audio_files(file1, file2):
+#     # Load the audio files
+#     audio1, sample_rate1 = sf.read(file1)
+#     audio2, sample_rate2 = sf.read(file2)
 #
+#     # Resample the audio signals if necessary
+#     if sample_rate1 != sample_rate2:
+#         audio2 = np.interp(
+#             np.linspace(0, len(audio1), len(audio2)),
+#             np.arange(len(audio2)),
+#             audio2
+#         )
+#
+#     # Calculate the root mean square (RMS) of the audio signals
+#     rms1 = np.sqrt(np.mean(np.square(audio1)))
+#     rms2 = np.sqrt(np.mean(np.square(audio2)))
+#
+#     # Set a similarity threshold
+#     similarity_threshold = 0.6
+#
+#     # Compare the RMS values
+#     similarity = min(rms1, rms2) / max(rms1, rms2)
+#
+#     # Compare the similarity with the threshold
+#     if similarity >= similarity_threshold:
+#         print("Audio files match. Similarity score:", similarity)
+#         return True
+#     else:
+#         print("Audio files do not match. Similarity score:", similarity)
+#         return False
+
+
+# audio_file1 = "/Users/borisl/HIT/nlpfinalproject/word_verification_module/syllables_audio/ate.wav"
+# audio_file2 = "/Users/borisl/HIT/nlpfinalproject/word_verification_module/syllable_recordings/ate.wav"
 # # record_audio(2, audio_file2)
 # compare_audio_files(audio_file1, audio_file2)
-# #
+
+# record_audio(2, audio_file2)
+# compare_audio_files(audio_file1, audio_file2)
